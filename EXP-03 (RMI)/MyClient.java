@@ -1,10 +1,14 @@
 import java.rmi.*;
 public class MyClient
 {
-	public static void main(String args[])throws Exception
-	{
-		Adder obj=(Adder)Naming.lookup("ADD");
-		int result=	obj.add(3,6);
-		System.out.println("Result :"+result);
-	}
+public static void main(String args[])
+{
+try
+{
+Adder stub=(Adder)Naming.lookup("rmi://localhost:5000/sonoo");
+System.out.println(stub.add(34,4));
+}
+catch(Exception e)
+{ System.out.println(e); }
+}
 }

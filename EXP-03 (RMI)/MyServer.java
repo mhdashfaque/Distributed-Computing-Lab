@@ -2,11 +2,17 @@ import java.rmi.*;
 
 public class MyServer
 {
-	public static void main(String args[])throws Exception
-	{
-		AdderRemote obj=new AdderRemote();
-		Naming.rebind("ADD",obj);
-		System.out.println("Server Started...");
-	}
+
+public static void main(String args[])
+{
+try
+{
+Adder stub=new AdderRemote();
+Naming.rebind("rmi://localhost:5000/sonoo",stub);
+}
+catch(Exception e)
+{ System.out.println(e); }
+}
+
 }
 	
